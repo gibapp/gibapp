@@ -7,7 +7,7 @@
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Raleway:wght@600;800&display=swap" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Raleway:wght@600;800&display=swap" rel="stylesheet">
 
     <!-- Icon Font Stylesheet -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"/>
@@ -57,24 +57,34 @@
                     <div class="card-body">
                         <form>
                             <div class="form-group mb-3">
-                                <label for="itemImage" class="form-label">Item Image</label>
+                                <label for="itemImage" class="form-label">Image</label>
                                 <input type="file" class="form-control" id="itemImage" accept="image/*">
+                                <img id="previewImage" src="" style="margin-top:20px;">
                             </div>
                             <div class="form-group mb-3">
-                                <label for="itemName" class="form-label">Item Name</label>
+                                <label for="itemName" class="form-label">Name</label>
                                 <input type="text" class="form-control" id="itemName" placeholder="Enter item name">
+                            </div>
+                            <div class="form-group mb-3">
+                                <label for="itemCategory" class="form-label">Category</label>
+                                <input type="text" class="form-control" id="itemCategory" placeholder="Enter item name">
                             </div>
                             <div class="form-group mb-3">
                                 <label for="itemDescription" class="form-label">Description</label>
                                 <textarea class="form-control" id="itemDescription" rows="3" placeholder="Describe the item"></textarea>
                             </div>
                             <div class="form-group mb-3">
-                                <label for="finderName" class="form-label">Finder's Name</label>
-                                <input type="text" class="form-control" id="finderName" placeholder="Enter your name">
+                                <label for="finderName" class="form-label">Found by</label>
+                                <input type="text" class="form-control" id="finderName" placeholder="Enter the name of the person who found the item">
                             </div>
                             <div class="form-group mb-3">
                                 <label for="foundLocation" class="form-label">Found Location</label>
-                                <input type="text" class="form-control" id="foundLocation" placeholder="Enter where you found the item">
+                                <input type="text" class="form-control" id="foundLocation" placeholder="Enter the location where the item was found">
+                            </div>
+                            <div class="form-group mb-3">
+                                <label for="foundDate" class="form-label">Found Time</label>
+                                <input type="datetime-local" class="form-control" id="foundDate" value="{{ (new \DateTime('now',
+                                                                                                                          new \DateTimeZone('GMT+07:00')))->format('Y-m-d H:m:s')}}">
                             </div>
                             <button type="submit" class="btn btn-success w-100 rounded-pill">Submit Item</button>
                         </form>
@@ -87,5 +97,20 @@
     <!-- JavaScript Libraries -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+    const itemImageInput = document.getElementById('itemImage');
+    const previewImage = document.getElementById('previewImage');
+
+    itemImageInput.addEventListener('change', function() {
+        const file = itemImageInput.files[0];
+        const reader = new FileReader();
+
+        reader.onload = function(event) {
+            previewImage.src = event.target.result;
+        };
+
+        reader.readAsDataURL(file);
+    });
+</script>
 </body>
 </html>
