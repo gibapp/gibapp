@@ -47,6 +47,41 @@
     </nav>
 
     <div class="page-box">
+        <!-- make an aesthetic form which contains image, name of lost item, description, finder, and where it found. Then, add button to claim a lost item with green and rounded rectangle! !-->
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="card shadow-sm">
+                    <div class="card-header text-center bg-primary text-white">
+                        <h3 class="card-title">Report a Found Item</h3>
+                    </div>
+                    <div class="card-body">
+                        <form>
+                            <div class="form-group mb-3">
+                                <label for="itemImage" class="form-label">Item Image</label>
+                                <input type="file" class="form-control" id="itemImage" accept="image/*">
+                            </div>
+                            <div class="form-group mb-3">
+                                <label for="itemName" class="form-label">Item Name</label>
+                                <input type="text" class="form-control" id="itemName" placeholder="Enter item name">
+                            </div>
+                            <div class="form-group mb-3">
+                                <label for="itemDescription" class="form-label">Description</label>
+                                <textarea class="form-control" id="itemDescription" rows="3" placeholder="Describe the item"></textarea>
+                            </div>
+                            <div class="form-group mb-3">
+                                <label for="finderName" class="form-label">Finder's Name</label>
+                                <input type="text" class="form-control" id="finderName" placeholder="Enter your name">
+                            </div>
+                            <div class="form-group mb-3">
+                                <label for="foundLocation" class="form-label">Found Location</label>
+                                <input type="text" class="form-control" id="foundLocation" placeholder="Enter where you found the item">
+                            </div>
+                            <button type="submit" class="btn btn-success w-100 rounded-pill">Submit Item</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
     <!-- JavaScript Libraries -->

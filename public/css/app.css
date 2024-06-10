@@ -9,7 +9,6 @@
 .search-input{
     margin-right: 20px;
     width: 100%;
-    border-radius: 10px;
 }
 
 .navbar-choice{
@@ -51,4 +50,9 @@
 .lost-card-image{
     width: 100%;
     height: 100%;
+}
+
+.lost-claim{
+    width: 80%;
+    margin-bottom: 3%;
 }
