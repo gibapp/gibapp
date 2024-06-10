@@ -13,7 +13,7 @@
 
 .navbar-choice{
     margin-right:auto !important;
-    margin-left:auto !important;
+    margin-left:3% !important;
 }
 
 .page-box{
@@ -41,6 +41,37 @@
     color: black;
     font-size: 20px;
 }
+
+.home-linked{
+    display: flex;
+    justify-content: center;
+}
+
+.home-linked-button{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 1%;
+    width: 300px;
+    background-color: rgb(189, 189, 189);
+    border-radius: 10px;
+    border-color: grey;
+}
+
+.home-linked-text{
+    color: black;
+    margin-top: 10px;
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: space-between;
+    width: 90%;
+}
+
+.home-linked-text:hover{
+    color: #81c408;
+}
+
 
 .lost-card{
     align-items: center;

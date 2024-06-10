@@ -51,6 +51,14 @@
             <div class="navbar-brand">
                 <h1 class="text-primary display-6 text-center home-big-text">Gibapp</h1>
                 <p class="text-center home-small-text">Find it fast. Claim it back.</p>
+                <div class="home-linked">
+                    <a href="{{ url('/lost') }}" class="home-linked-button">
+                        <div class="home-linked-text"><p>Find my Item</p><p>></p></div>
+                    </a>
+                    <a href="{{ url('/found') }}" class="home-linked-button">
+                        <div class="home-linked-text"><p>Report found item</p><p>></p></div>
+                    </a>
+                </div>
             </div>
         </div>
     </div>
