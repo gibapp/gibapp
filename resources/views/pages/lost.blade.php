@@ -48,10 +48,10 @@
 
     <div class="page-box">
         <div class="search-bar">
-            <input class="search-input"/>
+            <input type="text" class="search-input form-control"/>
             <button class="btn-search btn border border-secondary btn-md-square rounded-circle bg-white"><i class="fas fa-search text-primary"></i></button>
         </div>
-        <!-- make a grid which contain image, name of lost item, description, finder, where it found !-->
+        <!-- make a grid which contain image, name of lost item, description, finder, and where it found!-->
         <div class="row">
             <div class="col-lg-2 col-md-4 col-sm-6 mb-4">
                 <div class="card h-100 lost-card">
@@ -62,6 +62,7 @@
                         <p class="card-text"><small class="text-muted">Finder: John Doe</small></p>
                         <p class="card-text"><small class="text-muted">Found at: Location</small></p>
                     </div>
+                    <button class="btn btn-success rounded-pill lost-claim">Claim</button>
                 </div>
             </div>
             <div class="col-lg-2 col-md-4 col-sm-6 mb-4">
@@ -73,6 +74,7 @@
                         <p class="card-text"><small class="text-muted">Finder: John Doe</small></p>
                         <p class="card-text"><small class="text-muted">Found at: Location</small></p>
                     </div>
+                    <button class="btn btn-success rounded-pill lost-claim">Claim</button>
                 </div>
             </div>
             <div class="col-lg-2 col-md-4 col-sm-6 mb-4">
@@ -84,6 +86,7 @@
                         <p class="card-text"><small class="text-muted">Finder: John Doe</small></p>
                         <p class="card-text"><small class="text-muted">Found at: Location</small></p>
                     </div>
+                    <button class="btn btn-success rounded-pill lost-claim">Claim</button>
                 </div>
             </div>
             <div class="col-lg-2 col-md-4 col-sm-6 mb-4">
@@ -95,6 +98,7 @@
                         <p class="card-text"><small class="text-muted">Finder: John Doe</small></p>
                         <p class="card-text"><small class="text-muted">Found at: Location</small></p>
                     </div>
+                    <button class="btn btn-success rounded-pill lost-claim">Claim</button>
                 </div>
             </div>
             <div class="col-lg-2 col-md-4 col-sm-6 mb-4">
@@ -106,6 +110,7 @@
                         <p class="card-text"><small class="text-muted">Finder: John Doe</small></p>
                         <p class="card-text"><small class="text-muted">Found at: Location</small></p>
                     </div>
+                    <button class="btn btn-success rounded-pill lost-claim">Claim</button>
                 </div>
             </div>
             <div class="col-lg-2 col-md-4 col-sm-6 mb-4">
@@ -117,6 +122,7 @@
                         <p class="card-text"><small class="text-muted">Finder: John Doe</small></p>
                         <p class="card-text"><small class="text-muted">Found at: Location</small></p>
                     </div>
+                    <button class="btn btn-success rounded-pill lost-claim">Claim</button>
                 </div>
             </div>
             <div class="col-lg-2 col-md-4 col-sm-6 mb-4">
@@ -128,6 +134,7 @@
                         <p class="card-text"><small class="text-muted">Finder: John Doe</small></p>
                         <p class="card-text"><small class="text-muted">Found at: Location</small></p>
                     </div>
+                    <button class="btn btn-success rounded-pill lost-claim">Claim</button>
                 </div>
             </div>
             <div class="col-lg-2 col-md-4 col-sm-6 mb-4">
@@ -139,6 +146,31 @@
                         <p class="card-text"><small class="text-muted">Finder: John Doe</small></p>
                         <p class="card-text"><small class="text-muted">Found at: Location</small></p>
                     </div>
+                    <button class="btn btn-success rounded-pill lost-claim">Claim</button>
+                </div>
+            </div>
+            <div class="col-lg-2 col-md-4 col-sm-6 mb-4">
+                <div class="card h-100 lost-card">
+                    <img src="{{asset('Stable_Image.png')}}" class="card-img-top lost-card-image" alt="Item Image">
+                    <div class="card-body">
+                        <h5 class="card-title">Lost Item Name</h5>
+                        <p class="card-text">Description of the lost item.</p>
+                        <p class="card-text"><small class="text-muted">Finder: John Doe</small></p>
+                        <p class="card-text"><small class="text-muted">Found at: Location</small></p>
+                    </div>
+                    <button class="btn btn-success rounded-pill lost-claim">Claim</button>
+                </div>
+            </div>
+            <div class="col-lg-2 col-md-4 col-sm-6 mb-4">
+                <div class="card h-100 lost-card">
+                    <img src="{{asset('Stable_Image.png')}}" class="card-img-top lost-card-image" alt="Item Image">
+                    <div class="card-body">
+                        <h5 class="card-title">Lost Item Name</h5>
+                        <p class="card-text">Description of the lost item.</p>
+                        <p class="card-text"><small class="text-muted">Finder: John Doe</small></p>
+                        <p class="card-text"><small class="text-muted">Found at: Location</small></p>
+                    </div>
+                    <button class="btn btn-success rounded-pill lost-claim">Claim</button>
                 </div>
             </div>
         </div>
