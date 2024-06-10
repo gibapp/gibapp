@@ -19,6 +19,9 @@ Route::get('/found', function () {
     return view('pages.found');
 });
 
+Route::get('/admin', function () {
+    return view('pages.admin');
+});
 
 Route::middleware('admin')->group(function () {
     Route::get('/create', [ItemsController::class, 'getCreatePage'])->name('getCreatePage');

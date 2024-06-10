@@ -39,9 +39,7 @@
                 <a href="{{ url('/found') }}" class="nav-item nav-link">Found</a>
             </div>
             <div class="d-flex m-3 me-0">
-                <a href="{{ url('/admin') }}" class="my-auto">
-                    <i class="fas fa-user fa-2x"></i>
-                </a>
+                <button class="btn btn-secondary" onclick="window.location.href='{{ url('/') }}'">Logout</button>
             </div>
         </div>
     </nav>
@@ -51,14 +49,13 @@
             <div class="navbar-brand">
                 <h1 class="text-primary display-6 text-center home-big-text">Gibapp</h1>
                 <p class="text-center home-small-text">Find it fast. Claim it back.</p>
-                <!-- Search Bar -->
-                <div class="input-group mb-3">
-                    <input type="text" class="form-control" placeholder="Find your item" aria-label="Search" aria-describedby="basic-addon2">
-                    <div class="input-group-append">
-                        <button class="btn btn-secondary" type="button">
-                            <i class="fa fa-search"></i>
-                        </button>
-                    </div>
+                <div class="home-linked">
+                    <a href="{{ url('/lost') }}" class="home-linked-button">
+                        <div class="home-linked-text"><p>Search database</p><p>></p></div>
+                    </a>
+                    <a href="{{ url('/found') }}" class="home-linked-button">
+                        <div class="home-linked-text"><p>Report new lost item</p><p>></p></div>
+                    </a>
                 </div>
             </div>
         </div>
