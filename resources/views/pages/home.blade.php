@@ -39,10 +39,6 @@
                 <a href="{{ url('/found') }}" class="nav-item nav-link">Found</a>
             </div>
             <div class="d-flex m-3 me-0">
-                <div class="search-bar">
-                    <input class="search-input"/>
-                    <button class="btn-search btn border border-secondary btn-md-square rounded-circle bg-white me-4"><i class="fas fa-search text-primary"></i></button>
-                </div>
                 <a href="#" class="my-auto">
                     <i class="fas fa-user fa-2x"></i>
                 </a>
