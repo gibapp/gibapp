@@ -7,7 +7,7 @@
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Raleway:wght@600;800&display=swap" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Raleway:wght@600;800&display=swap" rel="stylesheet">
 
     <!-- Icon Font Stylesheet -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"/>
@@ -27,7 +27,7 @@
     <link href="{{asset('css/app.css')}}" rel="stylesheet">
 </head>
 <body>
-    <nav class="navbar navbar-light bg-white navbar-expand-xl">
+    <nav class="navbar navbar-light bg-white navbar-expand-xl nav-box">
         <a class="navbar-brand"><h1 class="text-primary display-6">Gibapp</h1></a>
         <button class="navbar-toggler py-2 px-3" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
             <span class="fa fa-bars text-primary"></span>
@@ -38,7 +38,7 @@
                 <a href="{{ url('/admin-lost') }}" class="nav-item nav-link active">Lost</a>
             </div>
             <div class="d-flex m-3 me-0">
-                <a href="{{url('/admin')}}" class="my-auto">
+                <a href="{{ url('/admin') }}" class="my-auto">
                     <i class="fas fa-user fa-2x"></i>
                 </a>
             </div>

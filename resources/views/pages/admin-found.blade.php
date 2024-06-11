@@ -27,7 +27,7 @@
     <link href="{{asset('css/app.css')}}" rel="stylesheet">
 </head>
 <body>
-    <nav class="navbar navbar-light bg-white navbar-expand-xl">
+    <nav class="navbar navbar-light bg-white navbar-expand-xl nav-box">
         <a class="navbar-brand"><h1 class="text-primary display-6">Gibapp</h1></a>
         <button class="navbar-toggler py-2 px-3" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
             <span class="fa fa-bars text-primary"></span>
@@ -57,7 +57,7 @@
                             <div class="form-group mb-3">
                                 <label for="itemImage" class="form-label">Image</label>
                                 <input type="file" class="form-control" id="itemImage" accept="image/*">
-                                <img id="previewImage" src="" style="margin-top:20px;">
+                                <img id="previewImage" class="itemPreview" src="">
                             </div>
                             <div class="form-group mb-3">
                                 <label for="itemName" class="form-label">Name</label>
