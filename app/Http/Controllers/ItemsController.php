@@ -1,73 +1,68 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use App\Http\Requests\ItemRequest;
 use Illuminate\Http\Request;
-use App\Models\Category;
 use App\Models\Items;
+use App\Models\Category;
+use Illuminate\Support\Facades\DB;
 
 class ItemsController extends Controller
 {
-    protected $category;
-    protected $items;
-
-    public function __construct(Category $category, Items $items)
-    {
-        $this->category = $category;
-        $this->items = $items;
-    }
-
     public function getCreatePage()
     {
-        $categories = $this->category->all();
-        return view('create', ['categories' => $categories]);
+        $categories = Category::all();
+        return view('pages.admin-found', ['categories' => $categories]);
     }
 
     public function createItem(ItemRequest $request)
     {
-        $fileName = $this->handleFileUpload($request);
+        $extension = $request->file('image')->getClientOriginalExtension();
+        $fileName = $request->nama_Item .'.'.$extension;
+        $request->file('image')->storeAs('public/image/', $fileName);
 
-        $this->items->create([
+        Items::create([
             'item_name' => $request->item_name,
             'description' => $request->description,
             'finders_name' => $request->finder_name,
             'image' => $fileName,
             'category_id' => $request->category_id,
         ]);
-        return redirect(route('getItems'));
+        return redirect(route('getItem'));
     }
 
     public function getItem()
     {
-        return $this->getItemView();
+        $items = Items::with('category')->get();
+        $categories = Category::with('item')->get();
+
+        return view ('view', compact('items', 'categories'));
     }
 
     public function getItemForUser()
     {
-        return $this->getItemView();
-    }
+        $items = Items::with('category')->get();
+        $categories = Category::with('Item')->get();
 
-    private function getItemView()
-    {
-        $items = $this->items->with('category')->get();
-        $categories = $this->category->with('item')->get();
-
-        return view('view', compact('items', 'categories'));
+        return view ('view', compact('Items', 'categories'));
     }
 
     public function getItemById($id)
     {
-        $items = $this->items->find($id);
-        return view('update', ['items' => $items]);
+        $items = Items::find($id);
+
+        return view('update', ['Items' => $items]);
     }
 
     public function updateItem(ItemRequest $request, $id)
     {
-        $items = $this->items->find($id);
-        $fileName = $this->handleFileUpload($request);
+        $items = Items::find($id);
 
-        $items->update([
+        $extension = $request->file('image')->getClientOriginalExtension();
+        $fileName = $request->nama_Item .'.'.$extension;
+        $request->file('image')->storeAs('public/image/', $fileName);
+
+        $items -> update([
             'item_name' => $request->item_name,
             'description' => $request->description,
             'finders_name' => $request->finder_name,
@@ -79,7 +74,7 @@ class ItemsController extends Controller
 
     public function createCategory(Request $request)
     {
-        $this->category->create([
+        $categories = Category::create([
             'category_name' => $request->category_name,
         ]);
 
@@ -88,51 +83,44 @@ class ItemsController extends Controller
 
     public function deleteItem($id)
     {
-        $this->items->destroy($id);
+        Items::destroy($id);
+
         return redirect(route('getItem'));
     }
 
     public function apiGetItem()
     {
-        $items = $this->items->with('category')->get();
-        $categories = $this->category->with('item')->get();
+        $items = Items::with('category')->get();
+        $categories = Category::with('Item')->get();
 
-        return response()->json(['items' => $items, 'categories' => $categories]);
+        return $categories;
     }
 
     public function apiCreateCategory(Request $request)
     {
-        $this->category->create([
+        $categories = Category::create([
             'category_name' => $request->category_name,
         ]);
 
-        return response()->json(['message' => 'Success Create']);
+        return 'Succes Create';
     }
 
     public function apiUpdateCategory(Request $request, $id)
     {
-        $category = $this->category->find($id);
-        $category->update([
+        $category = Category::find($id);
+
+        $category -> update([
             'category_name' => $request->category_name,
         ]);
 
-        return response()->json(['message' => 'Success Update']);
+        return 'Succes Update';
     }
 
     public function apiDeleteCategory($id)
     {
-        $this->category->destroy($id);
-        return response()->json(['message' => 'Success Delete']);
+        Category::destroy($id);
+
+        return 'Succes Delete';
     }
 
-    private function handleFileUpload($request)
-    {
-        if ($request->hasFile('image')) {
-            $extension = $request->file('image')->getClientOriginalExtension();
-            $fileName = $request->item_name . '.' . $extension;
-            $request->file('image')->storeAs('public/image/', $fileName);
-            return $fileName;
-        }
-        return null;
-    }
 }

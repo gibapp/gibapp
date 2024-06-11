@@ -53,7 +53,8 @@
                         <h3 class="card-title">Report a Found Item</h3>
                     </div>
                     <div class="card-body">
-                        <form>
+                        <form method="POST" action="{{route('createItem')}}" enctype="multipart/form-data">
+                            @csrf
                             <div class="form-group mb-3">
                                 <label for="itemImage" class="form-label">Image</label>
                                 <input type="file" class="form-control" id="itemImage" accept="image/*">
@@ -65,7 +66,11 @@
                             </div>
                             <div class="form-group mb-3">
                                 <label for="itemCategory" class="form-label">Category</label>
-                                <input type="text" class="form-control" id="itemCategory" placeholder="Enter item name">
+                                <select class="form-control" id="itemCategory" name="category_id">
+                                    @foreach($categories as $category)
+                                        <option value="{{ $category->id }}">{{ $category->category_name }}</option>
+                                    @endforeach
+                                </select>
                             </div>
                             <div class="form-group mb-3">
                                 <label for="itemDescription" class="form-label">Description</label>
