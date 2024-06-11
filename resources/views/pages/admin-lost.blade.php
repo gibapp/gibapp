@@ -7,7 +7,7 @@
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Raleway:wght@600;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Raleway:wght@600;800&display=swap" rel="stylesheet"> 
 
     <!-- Icon Font Stylesheet -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"/>
@@ -27,7 +27,7 @@
     <link href="{{asset('css/app.css')}}" rel="stylesheet">
 </head>
 <body>
-    <nav class="navbar navbar-light bg-white navbar-expand-xl nav-box">
+    <nav class="navbar navbar-light bg-white navbar-expand-xl">
         <a class="navbar-brand"><h1 class="text-primary display-6">Gibapp</h1></a>
         <button class="navbar-toggler py-2 px-3" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
             <span class="fa fa-bars text-primary"></span>
@@ -36,11 +36,10 @@
             <div class="navbar-nav navbar-choice">
                 <a href="{{ url('/admin') }}" class="nav-item nav-link">Home</a>
                 <a href="{{ url('/admin-lost') }}" class="nav-item nav-link active">Lost</a>
+                <a href="{{ url('/admin-found') }}" class="nav-item nav-link">Found</a>
             </div>
             <div class="d-flex m-3 me-0">
-                <a href="{{ url('/admin') }}" class="my-auto">
-                    <i class="fas fa-user fa-2x"></i>
-                </a>
+                <button class="btn btn-secondary" onclick="window.location.href='{{ url('/') }}'">Logout</button>
             </div>
         </div>
     </nav>
@@ -61,6 +60,7 @@
                         <p class="card-text"><small class="text-muted">Finder: John Doe</small></p>
                         <p class="card-text"><small class="text-muted">Found at: Location</small></p>
                     </div>
+                    <button class="btn btn-success rounded-pill lost-claim">Claim</button>
                 </div>
             </div>
             <div class="col-lg-2 col-md-4 col-sm-6 mb-4">
@@ -72,6 +72,7 @@
                         <p class="card-text"><small class="text-muted">Finder: John Doe</small></p>
                         <p class="card-text"><small class="text-muted">Found at: Location</small></p>
                     </div>
+                    <button class="btn btn-success rounded-pill lost-claim">Claim</button>
                 </div>
             </div>
             <div class="col-lg-2 col-md-4 col-sm-6 mb-4">
@@ -83,6 +84,7 @@
                         <p class="card-text"><small class="text-muted">Finder: John Doe</small></p>
                         <p class="card-text"><small class="text-muted">Found at: Location</small></p>
                     </div>
+                    <button class="btn btn-success rounded-pill lost-claim">Claim</button>
                 </div>
             </div>
             <div class="col-lg-2 col-md-4 col-sm-6 mb-4">
@@ -94,6 +96,7 @@
                         <p class="card-text"><small class="text-muted">Finder: John Doe</small></p>
                         <p class="card-text"><small class="text-muted">Found at: Location</small></p>
                     </div>
+                    <button class="btn btn-success rounded-pill lost-claim">Claim</button>
                 </div>
             </div>
             <div class="col-lg-2 col-md-4 col-sm-6 mb-4">
@@ -105,6 +108,7 @@
                         <p class="card-text"><small class="text-muted">Finder: John Doe</small></p>
                         <p class="card-text"><small class="text-muted">Found at: Location</small></p>
                     </div>
+                    <button class="btn btn-success rounded-pill lost-claim">Claim</button>
                 </div>
             </div>
             <div class="col-lg-2 col-md-4 col-sm-6 mb-4">
@@ -116,6 +120,7 @@
                         <p class="card-text"><small class="text-muted">Finder: John Doe</small></p>
                         <p class="card-text"><small class="text-muted">Found at: Location</small></p>
                     </div>
+                    <button class="btn btn-success rounded-pill lost-claim">Claim</button>
                 </div>
             </div>
             <div class="col-lg-2 col-md-4 col-sm-6 mb-4">
@@ -127,6 +132,7 @@
                         <p class="card-text"><small class="text-muted">Finder: John Doe</small></p>
                         <p class="card-text"><small class="text-muted">Found at: Location</small></p>
                     </div>
+                    <button class="btn btn-success rounded-pill lost-claim">Claim</button>
                 </div>
             </div>
             <div class="col-lg-2 col-md-4 col-sm-6 mb-4">
@@ -138,6 +144,7 @@
                         <p class="card-text"><small class="text-muted">Finder: John Doe</small></p>
                         <p class="card-text"><small class="text-muted">Found at: Location</small></p>
                     </div>
+                    <button class="btn btn-success rounded-pill lost-claim">Claim</button>
                 </div>
             </div>
             <div class="col-lg-2 col-md-4 col-sm-6 mb-4">
@@ -149,6 +156,19 @@
                         <p class="card-text"><small class="text-muted">Finder: John Doe</small></p>
                         <p class="card-text"><small class="text-muted">Found at: Location</small></p>
                     </div>
+                    <button class="btn btn-success rounded-pill lost-claim">Claim</button>
+                </div>
+            </div>
+            <div class="col-lg-2 col-md-4 col-sm-6 mb-4">
+                <div class="card h-100 lost-card">
+                    <img src="{{asset('Stable_Image.png')}}" class="card-img-top lost-card-image" alt="Item Image">
+                    <div class="card-body">
+                        <h5 class="card-title">Lost Item Name</h5>
+                        <p class="card-text">Description of the lost item.</p>
+                        <p class="card-text"><small class="text-muted">Finder: John Doe</small></p>
+                        <p class="card-text"><small class="text-muted">Found at: Location</small></p>
+                    </div>
+                    <button class="btn btn-success rounded-pill lost-claim">Claim</button>
                 </div>
             </div>
         </div>

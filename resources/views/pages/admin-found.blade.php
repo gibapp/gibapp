@@ -34,14 +34,12 @@
         </button>
         <div class="collapse navbar-collapse bg-white" id="navbarCollapse">
             <div class="navbar-nav navbar-choice">
-                <a href="{{ url('/') }}" class="nav-item nav-link">Home</a>
-                <a href="{{ url('/lost') }}" class="nav-item nav-link">Lost</a>
-                <a href="{{ url('/found') }}" class="nav-item nav-link active">Found</a>
+                <a href="{{ url('/admin') }}" class="nav-item nav-link">Home</a>
+                <a href="{{ url('/admin-lost') }}" class="nav-item nav-link">Lost</a>
+                <a href="{{ url('/admin-found') }}" class="nav-item nav-link active">Found</a>
             </div>
             <div class="d-flex m-3 me-0">
-                <a href="{{ url('/admin')}}" class="my-auto">
-                    <i class="fas fa-user fa-2x"></i>
-                </a>
+                <button class="btn btn-secondary" onclick="window.location.href='{{ url('/') }}'">Logout</button>
             </div>
         </div>
     </nav>

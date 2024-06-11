@@ -4,10 +4,6 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ItemsController;
 
 Route::get('/', function () {
-    return view('layouts.app');
-});
-
-Route::get('/', function () {
     return view('pages.home');
 });
 
@@ -15,12 +11,18 @@ Route::get('/lost', function () {
     return view('pages.lost');
 });
 
-Route::get('/found', function () {
-    return view('pages.found');
-});
-
 Route::get('/admin', function () {
     return view('pages.admin');
+});
+
+
+Route::get('/admin-lost', function () {
+    return view('pages.admin-lost');
+});
+
+
+Route::get('/admin-found', function () {
+    return view('pages.admin-found');
 });
 
 Route::middleware('admin')->group(function () {
