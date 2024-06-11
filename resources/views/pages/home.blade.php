@@ -36,7 +36,6 @@
             <div class="navbar-nav navbar-choice">
                 <a href="{{ url('/') }}" class="nav-item nav-link active">Home</a>
                 <a href="{{ url('/lost') }}" class="nav-item nav-link">Lost</a>
-                <a href="{{ url('/found') }}" class="nav-item nav-link">Found</a>
             </div>
             <div class="d-flex m-3 me-0">
                 <a href="{{ url('/admin') }}" class="my-auto">
