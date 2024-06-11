@@ -27,16 +27,15 @@
     <link href="{{asset('css/app.css')}}" rel="stylesheet">
 </head>
 <body>
-    <nav class="navbar navbar-light bg-white navbar-expand-xl">
+    <nav class="navbar navbar-light bg-white navbar-expand-xl nav-box">
         <a class="navbar-brand"><h1 class="text-primary display-6">Gibapp</h1></a>
-        <button class="navbar-toggler py-2 px-3" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+        <button class="navbar-toggler py-2 px-3" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" onclick="windows">
             <span class="fa fa-bars text-primary"></span>
         </button>
         <div class="collapse navbar-collapse bg-white" id="navbarCollapse">
             <div class="navbar-nav navbar-choice">
                 <a href="{{ url('/') }}" class="nav-item nav-link active">Home</a>
                 <a href="{{ url('/lost') }}" class="nav-item nav-link">Lost</a>
-                <a href="{{ url('/found') }}" class="nav-item nav-link">Found</a>
             </div>
             <div class="d-flex m-3 me-0">
                 <a href="{{ url('/admin') }}" class="my-auto">
