@@ -34,7 +34,7 @@ class ItemsController extends Controller
     public function getItem()
     {
         $items = Items::with('category')->get();
-        $categories = Category::with('item')->get();
+        $categories = Category::with('items')->get();
 
         return view ('view', compact('items', 'categories'));
     }
