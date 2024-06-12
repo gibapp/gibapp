@@ -35,8 +35,8 @@
         <div class="collapse navbar-collapse bg-white" id="navbarCollapse">
             <div class="navbar-nav navbar-choice">
                 <a href="{{ url('/admin') }}" class="nav-item nav-link active">Home</a>
-                <a href="{{ url('/admin-lost') }}" class="nav-item nav-link">Lost</a>
-                <a href="{{ url('/admin-found') }}" class="nav-item nav-link">Found</a>
+                <a href="{{ route('getItem') }}" class="nav-item nav-link">Lost</a>
+                <a href="{{ route('getCreatePage') }}" class="nav-item nav-link">Found</a>
             </div>
             <div class="d-flex m-3 me-0">
                 <button class="btn btn-secondary" onclick="window.location.href='{{ url('/') }}'">Logout</button>
@@ -50,10 +50,10 @@
                 <h1 class="text-primary display-6 text-center home-big-text">Gibapp</h1>
                 <p class="text-center home-small-text">Find it fast. Claim it back.</p>
                 <div class="home-linked">
-                    <a href="{{ url('/admin-lost') }}" class="home-linked-button">
+                    <a href="{{ route('getItem') }}" class="home-linked-button">
                         <div class="home-linked-text"><p>Search database</p><p>></p></div>
                     </a>
-                    <a href="{{ url('/admin-found') }}" class="home-linked-button">
+                    <a href="{{ route('getCreatePage') }}" class="home-linked-button">
                         <div class="home-linked-text"><p>Report new lost item</p><p>></p></div>
                     </a>
                 </div>
