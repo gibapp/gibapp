@@ -26,15 +26,19 @@ Route::get('/admin-found', function () {
 });
 
 
-Route::get('/create', 
+Route::get('/admin/create-item',
            [ItemsController::class, 'getCreatePage']
           )->name('getCreatePage');
 
-Route::get('/get-Item',
+Route::get('/admin/get-item',
            [ItemsController::class, 'getItem']
           )->name('getItem');
 
-Route::post('/create-Item',
+Route::get('/user/get-item',
+           [ItemsController::class, 'getItemForUser']
+          )->name('getItemForUser');
+
+Route::post('/admin/post-item',
             [ItemsController::class, 'createItem']
            )->name('createItem');
 
