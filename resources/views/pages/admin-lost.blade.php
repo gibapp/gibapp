@@ -7,7 +7,7 @@
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Raleway:wght@600;800&display=swap" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Raleway:wght@600;800&display=swap" rel="stylesheet">
 
     <!-- Icon Font Stylesheet -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"/>
@@ -54,7 +54,7 @@
             <div class="col-lg-2 col-md-4 col-sm-6 mb-4">
                 <div class="card h-100 lost-card">
                     <img src="{{asset('Stable_Image.png')}}" class="card-img-top lost-card-image" alt="Item Image">
-                    <div class="card-body">
+                    <div class="card-body lost-item-card">
                         <h5 class="card-title">Lost Item Name</h5>
                         <p class="card-text">Description of the lost item.</p>
                         <p class="card-text"><small class="text-muted">Finder: John Doe</small></p>

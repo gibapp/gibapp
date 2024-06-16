@@ -16,7 +16,7 @@
     margin-left:3% !important;
 }
 
-.nav-box {
+.navbar-collapse {
     z-index: 1;
 }
 
@@ -93,6 +93,10 @@
 .lost-card{
     align-items: center;
     justify-content: center;
+}
+
+.lost-item-card{
+    width: 90%;
 }
 
 .lost-card-image{
