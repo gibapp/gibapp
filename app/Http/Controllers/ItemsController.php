@@ -15,10 +15,11 @@ class ItemsController extends Controller
         return view('pages.admin-found', ['categories' => $categories]);
     }
 
-    public function createItem(ItemRequest $request)
+    public function createItem(Request $request)
     {
+        dd($request->all());
         $extension = $request->file('image')->getClientOriginalExtension();
-        $fileName = $request->nama_Item .'.'.$extension;
+        $fileName = $request->item_name .'.'.$extension;
         $request->file('image')->storeAs('public/image/', $fileName);
 
         Items::create([
@@ -27,8 +28,11 @@ class ItemsController extends Controller
             'finders_name' => $request->finder_name,
             'image' => $fileName,
             'category_id' => $request->category_id,
+            'date' => $request->date,
+            'found_location' => $request->found_location
         ]);
-        return redirect(route('getItem'));
+        return redirect(route('pages.admin-lost'))->with('success',
+                                                'Entry created successfully.');
     }
 
     public function getItem()
@@ -36,15 +40,15 @@ class ItemsController extends Controller
         $items = Items::with('category')->get();
         $categories = Category::with('items')->get();
 
-        return view ('view', compact('items', 'categories'));
+        return view ('pages.admin-lost', compact('items', 'categories'));
     }
 
     public function getItemForUser()
     {
         $items = Items::with('category')->get();
-        $categories = Category::with('Item')->get();
+        $categories = Category::with('items')->get();
 
-        return view ('view', compact('Items', 'categories'));
+        return view ('pages.lost', compact('items', 'categories'));
     }
 
     public function getItemById($id)

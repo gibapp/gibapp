@@ -10,7 +10,15 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 class Items extends Model
 {
     protected $table = 'lost_items';
-    protected $fillable = ['item_name', 'image', 'description', 'finders_name', 'found_location', 'date', 'category_id'];
+    protected $fillable = [
+        'item_name',
+        'image',
+        'description',
+        'finders_name',
+        'found_location',
+        'date',
+        'category_id'
+    ];
 
     public function category(): BelongsTo
     {

@@ -19,13 +19,16 @@ class ItemRequest extends FormRequest
      *
      * @return array<string, \Illuminate\Contracts\Validation\ValidationRule|array<mixed>|string>
      */
-    public function rules(): array
-    {
-        return [
-            'item_name' => 'required|string|min:2|max:255',
-            'description' => 'required|string|max:255',
-            'finders_name' => 'required|string|max80',
-            'found_location' => 'required|string|min:4|max:30'
-        ];
-    }
+public function rules(): array
+{
+    return [
+        'item_name' => 'required|string|min:10',
+        'description' => 'required|string',
+        'finder_name' => 'required|string',
+        'image' => 'required|image', // Assuming 'image' is a file upload and should be an image file.
+        'category_id' => 'required|exists:categories,id', // Assuming 'category_id' exists in the 'categories' table.
+        'found_location' => 'required|string',
+    ];
+}
+
 }
