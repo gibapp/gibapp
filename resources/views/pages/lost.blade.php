@@ -35,7 +35,7 @@
         <div class="collapse navbar-collapse bg-white" id="navbarCollapse">
             <div class="navbar-nav navbar-choice">
                 <a href="{{ url('/') }}" class="nav-item nav-link">Home</a>
-                <a href="{{ route('getItem') }}" class="nav-item nav-link active">Lost</a>
+                <a href="{{ route('getItemForUser') }}" class="nav-item nav-link active">Lost</a>
             </div>
             <div class="d-flex m-3 me-0">
                 <a href="{{ url('/admin') }}" class="my-auto">
@@ -52,105 +52,19 @@
         </div>
         <!-- make a grid which contain image, name of lost item, description, finder, and where it found!-->
         <div class="row">
+            @foreach($items as $item)
             <div class="col-lg-2 col-md-4 col-sm-6 mb-4">
                 <div class="card h-100 lost-card">
-                    <img src="{{asset('Stable_Image.png')}}" class="card-img-top lost-card-image" alt="Item Image">
+                    <img src="{{ $item->image }}" class="card-img-top lost-card-image" alt="Item Image">
                     <div class="card-body">
-                        <h5 class="card-title">Lost Item Name</h5>
-                        <p class="card-text">Description of the lost item.</p>
-                        <p class="card-text"><small class="text-muted">Finder: John Doe</small></p>
-                        <p class="card-text"><small class="text-muted">Found at: Location</small></p>
+                        <h5 class="card-title">{{ $item->item_name }}</h5>
+                        <p class="card-text">{{ $item->description }}</p>
+                        <p class="card-text"><small class="text-muted">{{ $item->finders_name }}</small></p>
+                        <p class="card-text"><small class="text-muted">{{ $item->found_location }}</small></p>
                     </div>
                 </div>
             </div>
-            <div class="col-lg-2 col-md-4 col-sm-6 mb-4">
-                <div class="card h-100 lost-card">
-                    <img src="{{asset('Stable_Image.png')}}" class="card-img-top lost-card-image" alt="Item Image">
-                    <div class="card-body">
-                        <h5 class="card-title">Lost Item Name</h5>
-                        <p class="card-text">Description of the lost item.</p>
-                        <p class="card-text"><small class="text-muted">Finder: John Doe</small></p>
-                        <p class="card-text"><small class="text-muted">Found at: Location</small></p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-2 col-md-4 col-sm-6 mb-4">
-                <div class="card h-100 lost-card">
-                    <img src="{{asset('Stable_Image.png')}}" class="card-img-top lost-card-image" alt="Item Image">
-                    <div class="card-body">
-                        <h5 class="card-title">Lost Item Name</h5>
-                        <p class="card-text">Description of the lost item.</p>
-                        <p class="card-text"><small class="text-muted">Finder: John Doe</small></p>
-                        <p class="card-text"><small class="text-muted">Found at: Location</small></p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-2 col-md-4 col-sm-6 mb-4">
-                <div class="card h-100 lost-card">
-                    <img src="{{asset('Stable_Image.png')}}" class="card-img-top lost-card-image" alt="Item Image">
-                    <div class="card-body">
-                        <h5 class="card-title">Lost Item Name</h5>
-                        <p class="card-text">Description of the lost item.</p>
-                        <p class="card-text"><small class="text-muted">Finder: John Doe</small></p>
-                        <p class="card-text"><small class="text-muted">Found at: Location</small></p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-2 col-md-4 col-sm-6 mb-4">
-                <div class="card h-100 lost-card">
-                    <img src="{{asset('Stable_Image.png')}}" class="card-img-top lost-card-image" alt="Item Image">
-                    <div class="card-body">
-                        <h5 class="card-title">Lost Item Name</h5>
-                        <p class="card-text">Description of the lost item.</p>
-                        <p class="card-text"><small class="text-muted">Finder: John Doe</small></p>
-                        <p class="card-text"><small class="text-muted">Found at: Location</small></p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-2 col-md-4 col-sm-6 mb-4">
-                <div class="card h-100 lost-card">
-                    <img src="{{asset('Stable_Image.png')}}" class="card-img-top lost-card-image" alt="Item Image">
-                    <div class="card-body">
-                        <h5 class="card-title">Lost Item Name</h5>
-                        <p class="card-text">Description of the lost item.</p>
-                        <p class="card-text"><small class="text-muted">Finder: John Doe</small></p>
-                        <p class="card-text"><small class="text-muted">Found at: Location</small></p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-2 col-md-4 col-sm-6 mb-4">
-                <div class="card h-100 lost-card">
-                    <img src="{{asset('Stable_Image.png')}}" class="card-img-top lost-card-image" alt="Item Image">
-                    <div class="card-body">
-                        <h5 class="card-title">Lost Item Name</h5>
-                        <p class="card-text">Description of the lost item.</p>
-                        <p class="card-text"><small class="text-muted">Finder: John Doe</small></p>
-                        <p class="card-text"><small class="text-muted">Found at: Location</small></p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-2 col-md-4 col-sm-6 mb-4">
-                <div class="card h-100 lost-card">
-                    <img src="{{asset('Stable_Image.png')}}" class="card-img-top lost-card-image" alt="Item Image">
-                    <div class="card-body">
-                        <h5 class="card-title">Lost Item Name</h5>
-                        <p class="card-text">Description of the lost item.</p>
-                        <p class="card-text"><small class="text-muted">Finder: John Doe</small></p>
-                        <p class="card-text"><small class="text-muted">Found at: Location</small></p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-2 col-md-4 col-sm-6 mb-4">
-                <div class="card h-100 lost-card">
-                    <img src="{{asset('Stable_Image.png')}}" class="card-img-top lost-card-image" alt="Item Image">
-                    <div class="card-body">
-                        <h5 class="card-title">Lost Item Name</h5>
-                        <p class="card-text">Description of the lost item.</p>
-                        <p class="card-text"><small class="text-muted">Finder: John Doe</small></p>
-                        <p class="card-text"><small class="text-muted">Found at: Location</small></p>
-                    </div>
-                </div>
-            </div>
+            @endforeach
         </div>
     </div>
 
