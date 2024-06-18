@@ -50,7 +50,7 @@
                 <h1 class="text-primary display-6 text-center home-big-text">Gibapp</h1>
                 <p class="text-center home-small-text">Find it fast. Claim it back.</p>
                 <div class="home-linked">
-                    <a href="{{ route('getItem') }}" class="home-linked-button">
+                    <a href="{{ route('getItemAdmin') }}" class="home-linked-button">
                         <div class="home-linked-text"><p>Search database</p><p>></p></div>
                     </a>
                     <a href="{{ route('getCreatePage') }}" class="home-linked-button">
