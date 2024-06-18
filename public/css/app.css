@@ -93,11 +93,13 @@
 .lost-card{
     align-items: center;
     justify-content: center;
+    overflow: hidden;
 }
 
 .lost-card-image{
     width: 100%;
-    height: 100%;
+    height: 50%;
+    object-fit: cover;
 }
 
 .lost-claim{
