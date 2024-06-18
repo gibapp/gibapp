@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Models\Items;
 use App\Models\Category;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Log;
 
 class ItemsController extends Controller
 {
@@ -15,28 +17,61 @@ class ItemsController extends Controller
         return view('pages.admin-found', ['categories' => $categories]);
     }
 
-    public function createItem(ItemRequest $request)
+    public function createItem(Request $request)
     {
-        $extension = $request->file('image')->getClientOriginalExtension();
-        $fileName = $request->nama_Item .'.'.$extension;
-        $request->file('image')->storeAs('public/image/', $fileName);
+        $request->validate([
+            'item_name' => 'required',
+            'category_id' => 'required',
+            'description' => 'required',
+            'finders_name' => 'required',
+            'found_location' => 'required',
+            'date' => 'required',
+            'image' => 'required|image', // validasi untuk file gambar
+        ]);
 
+        // Simpan gambar (jika ada)
+        $extension = $request->file('image')->getClientOriginalExtension();
+        $fileName = $request->item_name .'.'.$extension;
+        $request->file('image')->storeAs('public/images/', $fileName);
+
+        // Simpan data ke dalam database
         Items::create([
             'item_name' => $request->item_name,
-            'description' => $request->description,
-            'finders_name' => $request->finder_name,
             'image' => $fileName,
+            'description' => $request->description,
+            'finders_name' => $request->finders_name,
+            'found_location' => $request->found_location,
+            'date' => $request->date,
             'category_id' => $request->category_id,
         ]);
-        return redirect(route('getItem'));
+
+        return redirect()->route('getItemAdmin')->with('success', 'Data berhasil disimpan');
     }
+
 
     public function getItem()
     {
         $items = Items::with('category')->get();
         $categories = Category::with('items')->get();
 
-        return view ('view', compact('items', 'categories'));
+        return view ('pages.lost', compact('items', 'categories'));
+    }
+
+    public function getItemAdmin()
+    {
+        $items = Items::with('category')->get();
+        $categories = Category::with('items')->get();
+
+        return view ('pages.admin-lost', compact('items', 'categories'));
+    }
+
+    public function claimItem($id)
+    {
+        $item = Items::findOrFail($id);
+        $item->status = 'claimed';
+        $item->save();
+
+        return redirect()->route('getItemAdmin')->with('success', 'Item claimed successfully');
     }
 
     public function getItemForUser()
@@ -53,6 +88,18 @@ class ItemsController extends Controller
 
         return view('update', ['Items' => $items]);
     }
+
+    public function searchItem(Request $request)
+    {
+        $search = $request->input('search');
+
+        // Lakukan pencarian berdasarkan nama item atau kriteria lainnya di sini
+        $items = Items::where('item_name', 'like', '%'.$search.'%')->get();
+
+        // Kemudian kembalikan hasilnya ke view
+        return view('pages.search', compact('items', 'search'));
+    }
+
 
     public function updateItem(ItemRequest $request, $id)
     {

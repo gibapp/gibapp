@@ -7,7 +7,7 @@
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Raleway:wght@600;800&display=swap" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Raleway:wght@600;800&display=swap" rel="stylesheet">
 
     <!-- Icon Font Stylesheet -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"/>
@@ -51,127 +51,29 @@
         </div>
         <!-- make a grid which contain image, name of lost item, description, finder, and where it found!-->
         <div class="row">
+            @foreach($items as $item)
             <div class="col-lg-2 col-md-4 col-sm-6 mb-4">
                 <div class="card h-100 lost-card">
-                    <img src="{{asset('Stable_Image.png')}}" class="card-img-top lost-card-image" alt="Item Image">
+                    <img src="{{ asset('storage/images/' . $item->image) }}" class="card-img-top lost-card-image" alt="Item Image">
                     <div class="card-body">
-                        <h5 class="card-title">Lost Item Name</h5>
-                        <p class="card-text">Description of the lost item.</p>
-                        <p class="card-text"><small class="text-muted">Finder: John Doe</small></p>
-                        <p class="card-text"><small class="text-muted">Found at: Location</small></p>
+                        <h5 class="card-title">{{ $item->item_name }}</h5>
+                        <p class="card-text">{{ $item->description }}</p>
+                        <p class="card-text"><small class="text-muted">Finder: {{ $item->finders_name }}</small></p>
+                        <p class="card-text"><small class="text-muted">Found at: {{ $item->found_location }}</small></p>
+                        <p class="card-text"><small class="text-muted">Status: {{ $item->status }}</small></p>
+                        @if($item->status == 'unclaimed')
+                        <form action="{{ route('claimItem', $item->id) }}" method="POST">
+                            @csrf
+                            @method('PATCH')
+                            <button type="submit" class="btn btn-success rounded-pill lost-claim">Claim</button>
+                        </form>
+                    @endif
                     </div>
-                    <button class="btn btn-success rounded-pill lost-claim">Claim</button>
                 </div>
             </div>
-            <div class="col-lg-2 col-md-4 col-sm-6 mb-4">
-                <div class="card h-100 lost-card">
-                    <img src="{{asset('Stable_Image.png')}}" class="card-img-top lost-card-image" alt="Item Image">
-                    <div class="card-body">
-                        <h5 class="card-title">Lost Item Name</h5>
-                        <p class="card-text">Description of the lost item.</p>
-                        <p class="card-text"><small class="text-muted">Finder: John Doe</small></p>
-                        <p class="card-text"><small class="text-muted">Found at: Location</small></p>
-                    </div>
-                    <button class="btn btn-success rounded-pill lost-claim">Claim</button>
-                </div>
-            </div>
-            <div class="col-lg-2 col-md-4 col-sm-6 mb-4">
-                <div class="card h-100 lost-card">
-                    <img src="{{asset('Stable_Image.png')}}" class="card-img-top lost-card-image" alt="Item Image">
-                    <div class="card-body">
-                        <h5 class="card-title">Lost Item Name</h5>
-                        <p class="card-text">Description of the lost item.</p>
-                        <p class="card-text"><small class="text-muted">Finder: John Doe</small></p>
-                        <p class="card-text"><small class="text-muted">Found at: Location</small></p>
-                    </div>
-                    <button class="btn btn-success rounded-pill lost-claim">Claim</button>
-                </div>
-            </div>
-            <div class="col-lg-2 col-md-4 col-sm-6 mb-4">
-                <div class="card h-100 lost-card">
-                    <img src="{{asset('Stable_Image.png')}}" class="card-img-top lost-card-image" alt="Item Image">
-                    <div class="card-body">
-                        <h5 class="card-title">Lost Item Name</h5>
-                        <p class="card-text">Description of the lost item.</p>
-                        <p class="card-text"><small class="text-muted">Finder: John Doe</small></p>
-                        <p class="card-text"><small class="text-muted">Found at: Location</small></p>
-                    </div>
-                    <button class="btn btn-success rounded-pill lost-claim">Claim</button>
-                </div>
-            </div>
-            <div class="col-lg-2 col-md-4 col-sm-6 mb-4">
-                <div class="card h-100 lost-card">
-                    <img src="{{asset('Stable_Image.png')}}" class="card-img-top lost-card-image" alt="Item Image">
-                    <div class="card-body">
-                        <h5 class="card-title">Lost Item Name</h5>
-                        <p class="card-text">Description of the lost item.</p>
-                        <p class="card-text"><small class="text-muted">Finder: John Doe</small></p>
-                        <p class="card-text"><small class="text-muted">Found at: Location</small></p>
-                    </div>
-                    <button class="btn btn-success rounded-pill lost-claim">Claim</button>
-                </div>
-            </div>
-            <div class="col-lg-2 col-md-4 col-sm-6 mb-4">
-                <div class="card h-100 lost-card">
-                    <img src="{{asset('Stable_Image.png')}}" class="card-img-top lost-card-image" alt="Item Image">
-                    <div class="card-body">
-                        <h5 class="card-title">Lost Item Name</h5>
-                        <p class="card-text">Description of the lost item.</p>
-                        <p class="card-text"><small class="text-muted">Finder: John Doe</small></p>
-                        <p class="card-text"><small class="text-muted">Found at: Location</small></p>
-                    </div>
-                    <button class="btn btn-success rounded-pill lost-claim">Claim</button>
-                </div>
-            </div>
-            <div class="col-lg-2 col-md-4 col-sm-6 mb-4">
-                <div class="card h-100 lost-card">
-                    <img src="{{asset('Stable_Image.png')}}" class="card-img-top lost-card-image" alt="Item Image">
-                    <div class="card-body">
-                        <h5 class="card-title">Lost Item Name</h5>
-                        <p class="card-text">Description of the lost item.</p>
-                        <p class="card-text"><small class="text-muted">Finder: John Doe</small></p>
-                        <p class="card-text"><small class="text-muted">Found at: Location</small></p>
-                    </div>
-                    <button class="btn btn-success rounded-pill lost-claim">Claim</button>
-                </div>
-            </div>
-            <div class="col-lg-2 col-md-4 col-sm-6 mb-4">
-                <div class="card h-100 lost-card">
-                    <img src="{{asset('Stable_Image.png')}}" class="card-img-top lost-card-image" alt="Item Image">
-                    <div class="card-body">
-                        <h5 class="card-title">Lost Item Name</h5>
-                        <p class="card-text">Description of the lost item.</p>
-                        <p class="card-text"><small class="text-muted">Finder: John Doe</small></p>
-                        <p class="card-text"><small class="text-muted">Found at: Location</small></p>
-                    </div>
-                    <button class="btn btn-success rounded-pill lost-claim">Claim</button>
-                </div>
-            </div>
-            <div class="col-lg-2 col-md-4 col-sm-6 mb-4">
-                <div class="card h-100 lost-card">
-                    <img src="{{asset('Stable_Image.png')}}" class="card-img-top lost-card-image" alt="Item Image">
-                    <div class="card-body">
-                        <h5 class="card-title">Lost Item Name</h5>
-                        <p class="card-text">Description of the lost item.</p>
-                        <p class="card-text"><small class="text-muted">Finder: John Doe</small></p>
-                        <p class="card-text"><small class="text-muted">Found at: Location</small></p>
-                    </div>
-                    <button class="btn btn-success rounded-pill lost-claim">Claim</button>
-                </div>
-            </div>
-            <div class="col-lg-2 col-md-4 col-sm-6 mb-4">
-                <div class="card h-100 lost-card">
-                    <img src="{{asset('Stable_Image.png')}}" class="card-img-top lost-card-image" alt="Item Image">
-                    <div class="card-body">
-                        <h5 class="card-title">Lost Item Name</h5>
-                        <p class="card-text">Description of the lost item.</p>
-                        <p class="card-text"><small class="text-muted">Finder: John Doe</small></p>
-                        <p class="card-text"><small class="text-muted">Found at: Location</small></p>
-                    </div>
-                    <button class="btn btn-success rounded-pill lost-claim">Claim</button>
-                </div>
-            </div>
+            @endforeach
         </div>
+
     </div>
 
     <!-- JavaScript Libraries -->

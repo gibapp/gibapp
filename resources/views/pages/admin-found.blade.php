@@ -56,37 +56,37 @@
                         <form method="POST" action="{{route('createItem')}}" enctype="multipart/form-data">
                             @csrf
                             <div class="form-group mb-3">
-                                <label for="itemImage" class="form-label">Image</label>
-                                <input type="file" class="form-control" id="itemImage" accept="image/*">
+                                <label for="image" class="form-label">Image</label>
+                                <input name="image" type="file" class="form-control" id="image" accept="image/*">
                                 <img id="previewImage" class="itemPreview" src="">
                             </div>
                             <div class="form-group mb-3">
-                                <label for="itemName" class="form-label">Name</label>
-                                <input type="text" class="form-control" id="itemName" placeholder="Enter item name">
+                                <label for="item_name" class="form-label">Name</label>
+                                <input name="item_name" type="text" class="form-control" id="itemName" placeholder="Enter item name">
                             </div>
                             <div class="form-group mb-3">
                                 <label for="itemCategory" class="form-label">Category</label>
                                 <select class="form-control" id="itemCategory" name="category_id">
                                     @foreach($categories as $category)
-                                        <option value="{{ $category->id }}">{{ $category->category_name }}</option>
+                                        <option value="{{ $category->id }}">{{ $category->category_name }} </option>
                                     @endforeach
                                 </select>
                             </div>
                             <div class="form-group mb-3">
-                                <label for="itemDescription" class="form-label">Description</label>
-                                <textarea class="form-control" id="itemDescription" rows="3" placeholder="Describe the item"></textarea>
+                                <label for="description" class="form-label">Description</label>
+                                <textarea name="description" class="form-control" id="itemDescription" rows="3" placeholder="Describe the item"></textarea>
                             </div>
                             <div class="form-group mb-3">
-                                <label for="finderName" class="form-label">Found by</label>
-                                <input type="text" class="form-control" id="finderName" placeholder="Enter the name of the person who found the item">
+                                <label for="finders_name" class="form-label">Found by</label>
+                                <input name="finders_name" type="text" class="form-control" id="finders_name" placeholder="Enter the name of the person who found the item">
                             </div>
                             <div class="form-group mb-3">
-                                <label for="foundLocation" class="form-label">Found Location</label>
-                                <input type="text" class="form-control" id="foundLocation" placeholder="Enter the location where the item was found">
+                                <label for="found_location" class="form-label">Found Location</label>
+                                <input name="found_location" type="text" class="form-control" id="found_location" placeholder="Enter the location where the item was found">
                             </div>
                             <div class="form-group mb-3">
-                                <label for="foundDate" class="form-label">Found Time</label>
-                                <input type="datetime-local" class="form-control" id="foundDate" value="{{ (new \DateTime('now',
+                                <label for="date" class="form-label">Found Time</label>
+                                <input name="date" type="datetime-local" class="form-control" id="date" value="{{ (new \DateTime('now',
                                                                                                                           new \DateTimeZone('GMT+07:00')))->format('Y-m-d H:m:s')}}">
                             </div>
                             <button type="submit" class="btn btn-success w-100 rounded-pill">Submit Item</button>
@@ -101,7 +101,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
-    const itemImageInput = document.getElementById('itemImage');
+    const itemImageInput = document.getElementById('image');
     const previewImage = document.getElementById('previewImage');
 
     itemImageInput.addEventListener('change', function() {

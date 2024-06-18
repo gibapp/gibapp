@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string('date');
             $table->unsignedBigInteger('category_id')->unsigned();
             $table->foreign('category_id')->references('id')->on('categories');
+            $table->enum('status', ['unclaimed', 'claimed'])->default('unclaimed');
             $table->timestamps();
         });
     }

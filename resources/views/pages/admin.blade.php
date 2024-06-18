@@ -35,7 +35,7 @@
         <div class="collapse navbar-collapse bg-white" id="navbarCollapse">
             <div class="navbar-nav navbar-choice">
                 <a href="{{ url('/admin') }}" class="nav-item nav-link active">Home</a>
-                <a href="{{ route('getItem') }}" class="nav-item nav-link">Lost</a>
+                <a href="{{ route('getItemAdmin') }}" class="nav-item nav-link">Lost</a>
                 <a href="{{ route('getCreatePage') }}" class="nav-item nav-link">Found</a>
             </div>
             <div class="d-flex m-3 me-0">

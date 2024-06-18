@@ -14,22 +14,20 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
 
     <!-- Libraries Stylesheet -->
-    <link href="{{asset('lib/lightbox/css/lightbox.min.css')}}" rel="stylesheet">
-    <link href="{{asset('lib/owlcarousel/assets/owl.carousel.min.css')}}" rel="stylesheet">
-
+    <link href="{{ asset('lib/lightbox/css/lightbox.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('lib/owlcarousel/assets/owl.carousel.min.css') }}" rel="stylesheet">
 
     <!-- Customized Bootstrap Stylesheet -->
-    <link href="{{asset('css/bootstrap.min.css')}}" rel="stylesheet">
+    <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
 
     <!-- Template Stylesheet -->
-    <link href="{{asset('css/style.css')}}" rel="stylesheet">
-
-    <link href="{{asset('css/app.css')}}" rel="stylesheet">
+    <link href="{{ asset('css/style.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 <body>
     <nav class="navbar navbar-light bg-white navbar-expand-xl nav-box">
         <a class="navbar-brand"><h1 class="text-primary display-6">Gibapp</h1></a>
-        <button class="navbar-toggler py-2 px-3" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" onclick="windows">
+        <button class="navbar-toggler py-2 px-3" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
             <span class="fa fa-bars text-primary"></span>
         </button>
         <div class="collapse navbar-collapse bg-white" id="navbarCollapse">
@@ -51,14 +49,14 @@
                 <h1 class="text-primary display-6 text-center home-big-text">Gibapp</h1>
                 <p class="text-center home-small-text">Find it fast. Claim it back.</p>
                 <!-- Search Bar -->
-                <div class="input-group mb-3">
-                    <input type="text" class="form-control" placeholder="Find your item" aria-label="Search" aria-describedby="basic-addon2">
+                <form id="searchForm" class="input-group mb-3" action="{{ route('searchItem') }}" method="GET">
+                    <input type="text" name="search" class="form-control" placeholder="Find your item" aria-label="Search" aria-describedby="basic-addon2">
                     <div class="input-group-append">
-                        <button class="btn btn-secondary" type="button">
+                        <button class="btn btn-secondary" type="submit">
                             <i class="fa fa-search"></i>
                         </button>
                     </div>
-                </div>
+                </form>
             </div>
         </div>
     </div>
@@ -66,5 +64,17 @@
     <!-- JavaScript Libraries -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // JavaScript untuk menangani pencarian
+        $(document).ready(function() {
+            $('#searchForm').submit(function(e) {
+                e.preventDefault();
+                let searchValue = $('input[name="search"]').val().trim();
+                if (searchValue !== '') {
+                    window.location.href = "{{ route('searchItem') }}?search=" + encodeURIComponent(searchValue);
+                }
+            });
+        });
+    </script>
 </body>
 </html>

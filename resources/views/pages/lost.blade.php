@@ -46,116 +46,49 @@
     </nav>
 
     <div class="page-box">
-        <div class="search-bar">
-            <input type="text" class="search-input form-control"/>
-            <button class="btn-search btn border border-secondary btn-md-square rounded-circle bg-white"><i class="fas fa-search text-primary"></i></button>
-        </div>
+        <form id="searchForm" class="input-group mb-3" action="{{ route('searchItem') }}" method="GET">
+            <input type="text" name="search" class="form-control" placeholder="Find your item" aria-label="Search" aria-describedby="basic-addon2">
+            <div class="input-group-append">
+                <button class="btn btn-secondary" type="submit">
+                    <i class="fa fa-search"></i>
+                </button>
+            </div>
+        </form>
         <!-- make a grid which contain image, name of lost item, description, finder, and where it found!-->
         <div class="row">
+            @foreach($items as $item)
             <div class="col-lg-2 col-md-4 col-sm-6 mb-4">
                 <div class="card h-100 lost-card">
-                    <img src="{{asset('Stable_Image.png')}}" class="card-img-top lost-card-image" alt="Item Image">
+                    <img src="{{ asset('storage/images/' . $item->image) }}" class="card-img-top lost-card-image" alt="Item Image">
                     <div class="card-body">
-                        <h5 class="card-title">Lost Item Name</h5>
-                        <p class="card-text">Description of the lost item.</p>
-                        <p class="card-text"><small class="text-muted">Finder: John Doe</small></p>
-                        <p class="card-text"><small class="text-muted">Found at: Location</small></p>
+                        <h5 class="card-title">{{ $item->item_name }}</h5>
+                        <p class="card-text">{{ $item->description }}</p>
+                        <p class="card-text"><small class="text-muted">Finder: {{ $item->finders_name }}</small></p>
+                        <p class="card-text"><small class="text-muted">Found at: {{ $item->found_location }}</small></p>
+                        <p class="card-text"><small class="text-muted">Status: {{ $item->status }}</small></p>
                     </div>
                 </div>
             </div>
-            <div class="col-lg-2 col-md-4 col-sm-6 mb-4">
-                <div class="card h-100 lost-card">
-                    <img src="{{asset('Stable_Image.png')}}" class="card-img-top lost-card-image" alt="Item Image">
-                    <div class="card-body">
-                        <h5 class="card-title">Lost Item Name</h5>
-                        <p class="card-text">Description of the lost item.</p>
-                        <p class="card-text"><small class="text-muted">Finder: John Doe</small></p>
-                        <p class="card-text"><small class="text-muted">Found at: Location</small></p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-2 col-md-4 col-sm-6 mb-4">
-                <div class="card h-100 lost-card">
-                    <img src="{{asset('Stable_Image.png')}}" class="card-img-top lost-card-image" alt="Item Image">
-                    <div class="card-body">
-                        <h5 class="card-title">Lost Item Name</h5>
-                        <p class="card-text">Description of the lost item.</p>
-                        <p class="card-text"><small class="text-muted">Finder: John Doe</small></p>
-                        <p class="card-text"><small class="text-muted">Found at: Location</small></p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-2 col-md-4 col-sm-6 mb-4">
-                <div class="card h-100 lost-card">
-                    <img src="{{asset('Stable_Image.png')}}" class="card-img-top lost-card-image" alt="Item Image">
-                    <div class="card-body">
-                        <h5 class="card-title">Lost Item Name</h5>
-                        <p class="card-text">Description of the lost item.</p>
-                        <p class="card-text"><small class="text-muted">Finder: John Doe</small></p>
-                        <p class="card-text"><small class="text-muted">Found at: Location</small></p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-2 col-md-4 col-sm-6 mb-4">
-                <div class="card h-100 lost-card">
-                    <img src="{{asset('Stable_Image.png')}}" class="card-img-top lost-card-image" alt="Item Image">
-                    <div class="card-body">
-                        <h5 class="card-title">Lost Item Name</h5>
-                        <p class="card-text">Description of the lost item.</p>
-                        <p class="card-text"><small class="text-muted">Finder: John Doe</small></p>
-                        <p class="card-text"><small class="text-muted">Found at: Location</small></p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-2 col-md-4 col-sm-6 mb-4">
-                <div class="card h-100 lost-card">
-                    <img src="{{asset('Stable_Image.png')}}" class="card-img-top lost-card-image" alt="Item Image">
-                    <div class="card-body">
-                        <h5 class="card-title">Lost Item Name</h5>
-                        <p class="card-text">Description of the lost item.</p>
-                        <p class="card-text"><small class="text-muted">Finder: John Doe</small></p>
-                        <p class="card-text"><small class="text-muted">Found at: Location</small></p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-2 col-md-4 col-sm-6 mb-4">
-                <div class="card h-100 lost-card">
-                    <img src="{{asset('Stable_Image.png')}}" class="card-img-top lost-card-image" alt="Item Image">
-                    <div class="card-body">
-                        <h5 class="card-title">Lost Item Name</h5>
-                        <p class="card-text">Description of the lost item.</p>
-                        <p class="card-text"><small class="text-muted">Finder: John Doe</small></p>
-                        <p class="card-text"><small class="text-muted">Found at: Location</small></p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-2 col-md-4 col-sm-6 mb-4">
-                <div class="card h-100 lost-card">
-                    <img src="{{asset('Stable_Image.png')}}" class="card-img-top lost-card-image" alt="Item Image">
-                    <div class="card-body">
-                        <h5 class="card-title">Lost Item Name</h5>
-                        <p class="card-text">Description of the lost item.</p>
-                        <p class="card-text"><small class="text-muted">Finder: John Doe</small></p>
-                        <p class="card-text"><small class="text-muted">Found at: Location</small></p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-2 col-md-4 col-sm-6 mb-4">
-                <div class="card h-100 lost-card">
-                    <img src="{{asset('Stable_Image.png')}}" class="card-img-top lost-card-image" alt="Item Image">
-                    <div class="card-body">
-                        <h5 class="card-title">Lost Item Name</h5>
-                        <p class="card-text">Description of the lost item.</p>
-                        <p class="card-text"><small class="text-muted">Finder: John Doe</small></p>
-                        <p class="card-text"><small class="text-muted">Found at: Location</small></p>
-                    </div>
-                </div>
-            </div>
+            @endforeach
         </div>
     </div>
 
     <!-- JavaScript Libraries -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+
+
+    <script>
+        // JavaScript untuk menangani pencarian
+        $(document).ready(function() {
+            $('#searchForm').submit(function(e) {
+                e.preventDefault();
+                let searchValue = $('input[name="search"]').val().trim();
+                if (searchValue !== '') {
+                    window.location.href = "{{ route('searchItem') }}?search=" + encodeURIComponent(searchValue);
+                }
+            });
+        });
+    </script>
 </body>
 </html>

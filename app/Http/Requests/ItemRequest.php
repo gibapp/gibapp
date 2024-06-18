@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Support\Facades\Validator;
 
 class ItemRequest extends FormRequest
 {
@@ -24,7 +25,7 @@ class ItemRequest extends FormRequest
         return [
             'item_name' => 'required|string|min:2|max:255',
             'description' => 'required|string|max:255',
-            'finders_name' => 'required|string|max80',
+            'finders_name' => 'required|string|max:80',
             'found_location' => 'required|string|min:4|max:30'
         ];
     }

@@ -26,17 +26,17 @@ Route::get('/admin-found', function () {
 });
 
 
-Route::get('/create', 
+Route::get('/create',
            [ItemsController::class, 'getCreatePage']
           )->name('getCreatePage');
 
-Route::get('/get-Item',
-           [ItemsController::class, 'getItem']
-          )->name('getItem');
+Route::get('/get-Item', [ItemsController::class, 'getItem'])->name('getItem');
 
-Route::post('/create-Item',
-            [ItemsController::class, 'createItem']
-           )->name('createItem');
+Route::get('/get-Item-admin', [ItemsController::class, 'getItemAdmin'])->name('getItemAdmin');
+
+Route::post('/create-Item',[ItemsController::class, 'createItem'])->name('createItem');
+
+Route::patch('/claim-item/{id}', [ItemsController::class, 'claimItem'])->name('claimItem');
 
 Route::get('/update-Item/{id}',
            [ItemsController::class, 'getItemById']
@@ -54,4 +54,5 @@ Route::post('/create-Item-category',
             [ItemsController::class, 'createCategory']
            )->name('createCategory');
 
+Route::get('/search', [ItemsController::class, 'searchItem'])->name('searchItem');
 
