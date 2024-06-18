@@ -25,6 +25,10 @@ Route::get('/admin-found', function () {
     return view('pages.admin-found');
 });
 
+Route::get('/form-claim', function() {
+    return view('pages.form-claim');
+});
+
 
 Route::get('/create',
            [ItemsController::class, 'getCreatePage']
@@ -37,6 +41,8 @@ Route::get('/get-Item-admin', [ItemsController::class, 'getItemAdmin'])->name('g
 Route::post('/create-Item',[ItemsController::class, 'createItem'])->name('createItem');
 
 Route::patch('/claim-item/{id}', [ItemsController::class, 'claimItem'])->name('claimItem');
+
+Route::get('/claim-item/form/{id}', [ItemsController::class, 'getClaimant'])->name('getClaimant');
 
 Route::get('/update-Item/{id}',
            [ItemsController::class, 'getItemById']

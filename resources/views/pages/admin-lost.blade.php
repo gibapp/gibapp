@@ -62,9 +62,8 @@
                         <p class="card-text"><small class="text-muted">Found at: {{ $item->found_location }}</small></p>
                         <p class="card-text"><small class="text-muted">Status: {{ $item->status }}</small></p>
                         @if($item->status == 'unclaimed')
-                        <form action="{{ route('claimItem', $item->id) }}" method="POST">
+                        <form action="{{ route('getClaimant', $item->id) }}" method="GET">
                             @csrf
-                            @method('PATCH')
                             <button type="submit" class="btn btn-success rounded-pill lost-claim">Claim</button>
                         </form>
                     @endif

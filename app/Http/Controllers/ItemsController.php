@@ -65,6 +65,12 @@ class ItemsController extends Controller
         return view ('pages.admin-lost', compact('items', 'categories'));
     }
 
+    public function getClaimant($id)
+    {
+        $item = Items::findOrFail($id);
+        return view('pages.form-claim', ['item'=>$item]);
+    }
+
     public function claimItem($id)
     {
         $item = Items::findOrFail($id);
